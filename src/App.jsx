@@ -1,24 +1,25 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About ';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Portfolio from "./pages/Portfolio";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
     <>
-      <div className="w-full hide-scrollbar h-screen overflow-scroll bg-zinc-900 overflow-x-hidden">
-      <div className="navbar fixed top-0 w-full h-auto md:p-5 p-2 flex items-center justify-center">
-          <Navbar />
+      <Router>
+      <div className="w-full h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
         </div>
-        <div className="heroSection w-full h-full flex items-center justify-center md:mt-8 mt-10">
-          <Hero />
-        </div>
-        <div className="aboutSection w-full h-auto">
-          <About />
-        </div>
-      </div>
+      </Router>
     </>
   );
-}
+};
 
 export default App;
